@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Blog</title>
+</head>
+<body>
+    <h1>All Blog Posts</h1>
+    <hr>
+    {% for post in posts %}
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content|truncatewords:20 }}</p>  <!-- Display a snippet of the content -->
+        <p>By: {{ post.author }}</p>
+        <p>Published on: {{ post.created_at }}</p>
+        <hr>
+    {% empty %}
+        <p>No blog posts are available at this time.</p>
+    {% endfor %}
+</body>
+</html>
