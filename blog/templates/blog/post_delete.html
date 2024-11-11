@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Blog</title>
+</head>
+<body>
+
+{% block content %}
+<div class="delete-container">
+    <div class="delete-box">
+        <h2>Delete Post</h2>
+        <p class="warning-text">Are you sure you want to delete "{{ post.title }}"?</p>
+        <div class="post-preview">
+            <h3>Post Preview:</h3>
+            <div class="preview-content">
+                <p class="preview-title">{{ post.title }}</p>
+                <p class="preview-date">Created on: {{ post.created_date }}</p>
+                <p class="preview-excerpt">{{ post.content|truncatewords:30 }}</p>
+            </div>
+        </div>
+        <form method="POST" class="delete-form">
+            {% csrf_token %}
+            <div class="button-group">
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-default">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}
