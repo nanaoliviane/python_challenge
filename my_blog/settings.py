@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-n_!y$kf!s^$5q2#b9tj8bvvkrqc&r9rj&mrm@2&nygfibgbtp*
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+LOGIN_REDIRECT_URL = 'post_list'
+LOGOUT_REDIRECT_URL = 'post_list'
 
 # Application definition
 
@@ -117,6 +118,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
